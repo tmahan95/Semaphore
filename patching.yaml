@@ -10,5 +10,5 @@
      
   - name: reboot servers post patch
     ansible.builtin.reboot:
-    reboot_timeout: 3600
+     reboot_timeout: 3600
 ...
