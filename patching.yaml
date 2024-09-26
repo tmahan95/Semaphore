@@ -7,7 +7,4 @@
     apt:
      upgrade: yes
      update_cache: yes
-     
-  - name: reboot servers post patch
-    ansible.builtin.reboot:
 ...
