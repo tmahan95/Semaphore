@@ -6,10 +6,9 @@
   
   - name: One way to avoid apt_key once it is removed from your distro, armored keys should use .asc extension, binary should use .gpg
     block:
-      - name: somerepo | no apt key
-        ansible.builtin.get_url:
-          url: https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key 
-          dest: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    
+    - name: get the key
+      shell: curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
       - name: somerepo | apt source
         ansible.builtin.apt_repository:
