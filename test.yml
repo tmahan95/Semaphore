@@ -10,7 +10,7 @@
     - name: get the key
       shell: curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
-      - name: somerepo | apt source
+      - name: Install the Key
         ansible.builtin.apt_repository:
           repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/"
           state: present
