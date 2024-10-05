@@ -1,7 +1,5 @@
 ---
 - hosts: Kubernetes_Master
-  become: yes
-  become_user: root
   tasks: 
   - name: apply manifest tigera-operator manifest
     kubernetes.core.k8s:
