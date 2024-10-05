@@ -7,7 +7,7 @@
       url: https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/tigera-operator.yaml
       dest: ~/calico-tigera-operator.yaml
       mode: '0664'
-      validate_certs: false
+      #validate_certs: false
     
   - name: apply manifest tigera-operator manifest
     kubernetes.core.k8s:
