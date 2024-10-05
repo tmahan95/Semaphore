@@ -1,17 +1,20 @@
 ---
-- hosts: all
+- hosts: Kubernetes_Master
   become: yes
   become_user: root
   tasks: 
   
-  - name: One way to avoid apt_key once it is removed from your distro, armored keys should use .asc extension, binary should use .gpg
-    block:
-    
-    - name: get the key
-      shell: curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
-
-    - name: Install the Key
-      ansible.builtin.apt_repository:
-        repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.31/deb/"
-        state: present
+  - name: install tigera operator
+    #hosts: Kubernetes Master
+    become: yes
+    become_user: timmy
+    command: kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/tigera-operator.yaml
+    #args:
+      #chdir: /home/timmy/
+      
+  - name: install calico resources
+    #hosts: Kubernetes Master
+    become: yes
+    become_user: timmy
+    command: kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/custom-resources.yaml
 ...
