@@ -15,6 +15,6 @@
     
   - name: apply manifest tigera-operator resources
     kubernetes.core.k8s:
-      src: "~/manifests/custom-resources.yaml"
+      src: "~/custom-resources.yaml"
       state: present
 ...
