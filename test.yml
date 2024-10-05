@@ -17,6 +17,8 @@
     become: yes
     become_user: root
     copy:
+      owner: timmy
+      group: timmy
       src: /tmp/kubernetes_join_command
       dest: /tmp/kubernetes_join_command
       mode: 0777
