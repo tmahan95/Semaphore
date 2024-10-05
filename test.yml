@@ -15,10 +15,11 @@
   - name: Copy join command from Ansiblehost to the worker nodes.
     copy:
       src: /tmp/kubernetes_join_command
-      dest: /tmp/kubernetes_join_command
+      dest: ~/kubernetes_join_command
 
   - name: Join the Worker nodes to the cluster.
     become: yes
-    command: sh /tmp/kubernetes_join_command
+    become_user: root
+    command: sh ~/kubernetes_join_command
     register: joined_or_not
 ...
