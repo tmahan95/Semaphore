@@ -13,5 +13,5 @@
   tasks:
   - name: Joining to the cluster
     become: yes
-    shell: “{{ hostvars[‘kubemaster’][‘join_command’] }}”
+    shell: “{{ hostvars[‘Kubemaster_Master’][‘join_command’] }}”
 ...
