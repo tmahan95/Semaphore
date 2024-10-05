@@ -3,7 +3,7 @@
   tasks: 
 
   - name: Download metrics-server manifest to the cluster.
-    ansible.builtin.get_url:
+    get_url:
       url: https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/tigera-operator.yaml
       dest: ~/calico-tigera-operator.yaml
       mode: '0664'
