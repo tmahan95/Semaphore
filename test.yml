@@ -1,7 +1,9 @@
 ---
 - hosts: Kubernetes_Master
   tasks: 
-  - name: Getting join command from the master node…
+  - name: Getting join command from the master node
+    become: yes
+    become_user: root
     shell: kubeadm token create --print-join-command
     register: join_command
  
@@ -13,5 +15,6 @@
   tasks:
   - name: Joining to the cluster
     become: yes
+    become_user: root
     shell: "{{ hostvars[‘Kubemaster_Master’][‘join_command’] }}"
 ...
