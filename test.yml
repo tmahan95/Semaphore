@@ -16,5 +16,5 @@
   - name: Joining to the cluster
     become: yes
     become_user: root
-    shell: "{{ hostvars[‘Kubemaster_Master’][‘join_command’] }}"
+    shell: "{{ hostvars[‘Kubernetes_Master’][‘join_command’] }}"
 ...
