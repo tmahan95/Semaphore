@@ -3,15 +3,15 @@
   tasks: 
 
   - name: Download metrics-server manifest to the cluster.
-    shell: curl -fsSL https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/tigera-operator.yaml
+    shell: wget https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/tigera-operator.yaml
     
   - name: apply manifest tigera-operator manifest
     kubernetes.core.k8s:
-      src: "~/calico-tigera-operator.yaml"
+      src: "~/tigera-operator.yaml"
       state: present
 
   - name: Download metrics-server manifest to the cluster.
-    shell: curl -fsSL https://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/custom-resources.yaml
+    shell: wgethttps://raw.githubusercontent.com/projectcalico/calico/v3.28.2/manifests/custom-resources.yaml
     
   - name: apply manifest tigera-operator resources
     kubernetes.core.k8s:
