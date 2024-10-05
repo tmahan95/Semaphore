@@ -13,8 +13,6 @@
 - hosts: Kubernetes_Worker
   tasks:
   - name: Copy join command from Ansiblehost to the worker nodes.
-    become: yes
-    become_user: root
     copy:
       src: /tmp/kubernetes_join_command
       dest: /tmp/kubernetes_join_command
