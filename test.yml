@@ -12,9 +12,9 @@
       join_command: "{{ join_command.stdout_lines[0] }}"
 
   - name: add variables to dummy host
-   add_host:
-     name: "variable_holder"
-     shared_variable:  "{{ join_command }}"
+    add_host:
+      name: "variable_holder"
+      shared_variable:  "{{ join_command }}"
 
 - hosts: Kubernetes_Worker
   tasks:
