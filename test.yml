@@ -16,5 +16,5 @@
   - name: Joining to the cluster
     become: yes
     become_user: root
-    shell: "{{ hostvars['localhost']['join_command'] }}"
+    shell: "{{ hostvars['192.168.3.171']['join_command'] }}"
 ...
