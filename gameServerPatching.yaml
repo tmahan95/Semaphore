@@ -1,1 +1,16 @@
-
+---
+- hosts: all
+  become: yes
+  become_user: root
+  tasks: 
+  - name: update apt packages
+    apt:
+     upgrade: yes
+     update_cache: yes
+  - name: Reboot Server
+    reboot:
+  - name: Start Palworld Server
+    shell: ~/Steam/steamapps/common/PalServer/PalServer.sh
+    become: True
+    become_user: steam
+...
